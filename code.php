@@ -12,7 +12,7 @@ curl_setopt($ch, CURLOPT_URL, 'https://api.twilio.com/2010-04-01/Accounts/[YOUR 
 
 curl_setopt($ch, CURLOPT_POST, 1);
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, array('From' => '15122714854', 'To' => "$to", 'Body' => "$msg"));
+curl_setopt($ch, CURLOPT_POSTFIELDS, array('From' => '[YOU TWILIO NUMBER]', 'To' => "$to", 'Body' => "$msg"));
 curl_setopt($ch, CURLOPT_USERPWD, '[YOUR ACCOUNT TOKEN]');
 
 $buffer = curl_exec($ch);
