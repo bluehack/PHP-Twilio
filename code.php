@@ -1,54 +1,54 @@
 <?php
 
 
-$to = $_POST['number'];
-$msg = $_POST['msg'];
-$submit = $_POST['submit'];
+    $to = $_POST['number'];
+    $msg = $_POST['msg'];
+    $submit = $_POST['submit'];
 
-if($submit){
+    if($submit){
 
-$ch=curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.twilio.com/2010-04-01/Accounts/[YOUR ACCOUNT NUMBER]/SMS/Messages.xml');
+        $ch=curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.twilio.com/2010-04-01/Accounts/[YOUR ACCOUNT NUMBER]/SMS/Messages.xml');
 
-curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, array('From' => '[YOUR TWILIO PHONE NUMBER]', 'To' => "$to", 'Body' => "$msg"));
-curl_setopt($ch, CURLOPT_USERPWD, '[YOUR ACCOUNT TOKEN]');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array('From' => '[YOUR TWILIO PHONE NUMBER]', 'To' => "$to", 'Body' => "$msg"));
+        curl_setopt($ch, CURLOPT_USERPWD, '[YOUR ACCOUNT TOKEN]');
 
-$buffer = curl_exec($ch);
+        $buffer = curl_exec($ch);
 
-curl_close($ch);
+        curl_close($ch);
 
-if (empty($buffer))
-{
-    print "Sorry, Error.";
-}
-else
-{
-    print "";
-}
-}
+        if (empty($buffer))
+        {
+             print "Sorry, Error.";
+        }
+        else
+        {
+             print "";
+        }
+    }
 
-$xml = '<?xml version="1.0" encoding="utf-8"?>'; 
+    $xml = '<?xml version="1.0" encoding="utf-8"?>'; 
 
-echo $xml;
+    echo $xml;
 
 ?>
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <title>Twil OE</title>
-<body>
+    <body>
 
-<form action="" method=post>
+        <form action="" method=post>
 
-<input type=text placeholder="number ex: 5128881212" name=number style="width:80%;"/> <br/><br/>
+        <input type=text placeholder="number ex: 5128881212" name=number style="width:80%;"/> <br/><br/>
 
-<textarea name=msg placeholder="text msg" style="width:80%;height:50%;"></textarea> <br/><br/><br/>
+        <textarea name=msg placeholder="text msg" style="width:80%;height:50%;"></textarea> <br/><br/><br/>
 
-<button type=submit name=submit value=1>Send</button> <br/><br/> <a href="">Click here after sending [fixes bug]</a>
+        <button type=submit name=submit value=1>Send</button> <br/><br/> <a href="">Click here after sending [fixes bug]</a>
 
-</form>
+        </form>
 
-</body>
+    </body>
 </html>
